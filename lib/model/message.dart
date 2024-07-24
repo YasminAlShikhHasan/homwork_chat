@@ -3,10 +3,11 @@ import 'dart:convert';
 
 class MessageModel {
   String message;
-  bool isMe;
+  bool? isMe;
   MessageModel({
     required this.message,
-    required this.isMe,
+    this.isMe,
+     
   });
 
   MessageModel copyWith({
@@ -15,7 +16,7 @@ class MessageModel {
   }) {
     return MessageModel(
       message: message ?? this.message,
-      isMe: isMe ?? this.isMe,
+    
     );
   }
 
@@ -29,7 +30,7 @@ class MessageModel {
   factory MessageModel.fromMap(Map<String, dynamic> map) {
     return MessageModel(
       message: map['message'] as String,
-      isMe: map['isMe'] as bool,
+    
     );
   }
 
